@@ -15,6 +15,10 @@ use Yii;
 class TomReport extends \yii\db\ActiveRecord
 {
     /**
+     * @var mixed|string|null
+     */
+
+    /**
      * {@inheritdoc}
      */
     public static function tableName()

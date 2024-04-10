@@ -50,6 +50,16 @@ $config = [
             ],
         ],
         */
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en',
+                ],
+            ],
+        ],
+
     ],
     'params' => $params,
 ];

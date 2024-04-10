@@ -62,18 +62,26 @@ class SiteController extends Controller
      * @return string
      */
 
-    public function actionIndex()
+    public function actionIndex(): string
     {
+        $language = Yii::$app->session->get('language', 'sl-SI');
         $model  = new TomProject();
-        $progress = "Projekt ni izbran.";
-        $tasks = "Izberi projekt za prikaz opravil.";
-        return $this->render('index', ['nav' => $model->getProjects(), 'progress' => $progress, 'tasks' => $tasks]);
+        $progress = Yii::t('app', 'Progress placeholder', [], $language);
+        $tasks = Yii::t('app', 'Task placeholder', [], $language);
+        return $this->render('index', ['nav' => $model->getProjects(), 'progress' => $progress, 'tasks' => $tasks, 'language' => $language]);
     }
 
-        public function actionProject($id)
-    {
+        public function actionProject($id): string
+        {
+            $language = Yii::$app->session->get('language', 'sl-SI');
         $model = new TomProject();
-        return $this->render('index', ['nav' => $model->getProjects(), 'progress' => $model->getCompletion($id), 'tasks' => $model->getTasks($id)]);
+        return $this->render('index', ['nav' => $model->getProjects(), 'progress' => $model->getCompletion($id), 'tasks' => $model->getTasks($id), 'language' => $language]);
+    }
+
+    public function actionLang($lang)
+    {
+        Yii::$app->session->set('language', $lang);
+        $this->redirect(Yii::$app->request->referrer);
     }
 
 

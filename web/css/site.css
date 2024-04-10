@@ -103,3 +103,20 @@ a.desc:after {
 .second-navbar {
     width: 20vw;
 }
+
+.project {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+
+}
+.heading {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-55%);
+    font-size: calc(1em + 1.45vw);
+}
